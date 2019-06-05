@@ -96,3 +96,40 @@ test('Income just from Crops', () => {
   expect(farm.incomeCrops()).not.toBe(0);
   expect(farm.incomeAnimals()).not.toBe(0);
 })
+
+//Show Crops
+test('Showing every Crop INFO that is in the farm', () => {
+  const farm = new Farm('TEST_CROPS_INFO');
+  farm.addCrop(new Wheat(100));
+  farm.addCrop(new Sugarcane(80));
+  expect(farm.getCropsInfo()).not.toBe('');
+})
+
+//Show Animals
+test('Showing every Animal INFO that is in the farm', () => {
+  const farm = new Farm('TEST_Animals_INFO');
+  farm.addAnimal(new Pig(100));
+  farm.addAnimal(new Cow(80));
+  farm.addAnimal(new Horse(120));
+  expect(farm.getAnimalsInfo()).not.toBe('');
+})
+
+//Is this farm Vegan?
+test('Is this farm Vegan:', () => {
+  const farm = new Farm('Test_VEGAN_FARM');
+  farm.addCrop(new Wheat(100));
+  farm.addCrop(new Sugarcane(80));
+  expect(farm.isVegan()).toBe(true);
+})
+
+test('Is this farm Vegan:', () => {
+  const farm = new Farm('Test_VEGAN_FARM');
+  farm.addCrop(new Wheat(100));
+  farm.addCrop(new Sugarcane(80));
+  farm.addAnimal(new Pig(100));
+  farm.addAnimal(new Cow(80));
+  farm.addAnimal(new Horse(120));
+  expect(farm.isVegan()).toBe(false);
+})
+
+//Crop with most Income
