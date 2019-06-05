@@ -133,3 +133,13 @@ test('Is this farm Vegan:', () => {
 })
 
 //Crop with most Income
+test('Crop with most income:', () => {
+  const farm = new Farm('Test_Most_INC_Crop_FARM');
+  farm.addCrop(new Wheat(100));
+  const sugarcane = new Sugarcane(180);
+  farm.addCrop(sugarcane);
+  farm.addAnimal(new Pig(100));
+  farm.addAnimal(new Cow(80));
+  farm.addAnimal(new Horse(120));
+  expect(farm.cropMostIncome()).toBe(sugarcane);
+})

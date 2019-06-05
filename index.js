@@ -56,7 +56,11 @@ class Farm {
     }
 
     cropMostIncome(){
-        return Math.max(this.crops(crops => crop.getYieldInEuros()));
+        let mapping = this.crops.map(crop => crop.getYieldInEuros());
+        let index = mapping.indexOf(Math.max(...mapping))
+        console.log('Index of Max:', index);
+        console.log('Crop with Maximum revenue:', this.crops[index])
+        return this.crops[index];
     }
  
 }
